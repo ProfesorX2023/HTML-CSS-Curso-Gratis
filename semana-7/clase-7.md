@@ -593,261 +593,169 @@ Crea una página web con un diseño creativo que combine múltiples técnicas de
 
 ### 📌 Ejemplo de Cómo Debería Verse
 
+![Ejericio 7](ejercicio-7.png)
+
+## 📋 Descripción del Reto
+Utilizando únicamente los conceptos de **posicionamiento CSS** y **visualización de elementos** vistos en la Clase 7, deberás crear una barra de navegación fija con menú desplegable funcional.
+
+## 🎯 Objetivos
+Al completar este reto, habrás practicado:
+- ✅ `position: fixed` para elementos fijos
+- ✅ `position: absolute` para menús desplegables
+- ✅ `position: relative` como contenedor de referencia
+- ✅ `z-index` para controlar la superposición
+- ✅ `display: none/block` para mostrar/ocultar elementos
+- ✅ Pseudo-clase `:hover` para interactividad
+- ✅ Enlaces internos con IDs
+
+## 🛠️ Especificaciones Técnicas
+
+### **Navbar Principal**
+- Debe estar **fija** en la parte superior de la página
+- Alto de **50px**
+- Fondo color **#333**
+- Debe permanecer visible al hacer scroll
+- `z-index` apropiado para estar sobre otros elementos
+
+### **Logo**
+- Posicionado a la **izquierda**
+- Color blanco
+- Texto: "MiWeb" (o el que prefieras)
+- Tamaño de fuente: **20px**
+
+### **Menú de Navegación**
+- Posicionado a la **derecha** de la navbar
+- Debe contener al menos 4 elementos:
+  1. **Inicio**
+  2. **Acerca**
+  3. **Categorías** (con menú desplegable)
+  4. **Contacto**
+
+### **Menú Desplegable**
+- Se activa al pasar el cursor sobre "Categorías"
+- Debe contener al menos 4 opciones:
+  - Tecnología
+  - Deportes
+  - Música
+  - Viajes
+- Fondo más oscuro que la navbar principal
+- Se oculta cuando el cursor sale del área
+
+### **Contenido Principal**
+- Debe tener margen superior para no quedar oculto bajo la navbar
+- Incluir secciones con IDs que correspondan a los enlaces del menú
+- Una sección alta para probar el scroll
+
+## 📝 Estructura HTML Requerida
+
 ```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseño con Superposición y Efectos Sticky</title>
+    <title>Mi Navbar - Reto</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            padding-top: 70px; /* Espacio para la barra fija */
-        }
-        
-        /* Barra de navegación fija */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(44, 62, 80, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
-            transition: background-color 0.3s;
-        }
-        
-        .navbar-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-        
-        .logo {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            padding: 15px 0;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo-icon {
-            margin-right: 10px;
-            font-size: 1.8rem;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-item {
-            position: relative;
-        }
-        
-        .nav-link {
-            color: white;
-            display: block;
-            padding: 18px 20px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            position: relative;
-        }
-        
-        .nav-link:hover {
-            background-color: rgba(52, 152, 219, 0.8);
-        }
-        
-        /* Menú desplegable */
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: rgba(52, 73, 94, 0.95);
-            min-width: 220px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-15px);
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            border-radius: 0 0 8px 8px;
-        }
-        
-        .nav-item:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        .dropdown-item {
-            color: white;
-            padding: 15px 25px;
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s;
-            border-left: 3px solid transparent;
-        }
-        
-        .dropdown-item:hover {
-            background-color: rgba(41, 128, 185, 0.8);
-            border-left-color: #3498db;
-            padding-left: 30px;
-        }
-        
-        /* Hero Section con superposición */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            z-index: 1;
-        }
-        
-        .hero-content {
-            text-align: center;
-            color: white;
-            z-index: 2;
-            position: relative;
-        }
-        
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background-color: #e74c3c;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s;
-            animation: fadeInUp 1s ease-out 0.6s both;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
-        }
-        
-        .cta-button:hover {
-            background-color: #c0392b;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
-        }
-        
-        /* Elementos flotantes decorativos */
-        .floating-element {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .floating-element:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-            z-index: 1;
-        }
-        
-        .floating-element:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            top: 60%;
-            right: 15%;
-            animation-delay: 2s;
-            z-index: 1;
-        }
-        
-        .floating-element:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
-            z-index: 1;
-        }
-        
-        /* Sección sticky */
-        .sticky-section {
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px 0;
-            position: sticky;
-            top: 70px;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .sticky-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-        
-        /* Galería con inline-block */
-        .gallery {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-        
-        .gallery h2 {
-            margin-bottom: 40px;
-            color: #2c3e50;
-            font-size: 2.5rem;
-        }
-        
-        .gallery-item {
-            display: inline-block;
-            width: 300px;
-            height: 200px;
-            margin: 15px;
-            background: linear-gradient(45deg, #3498db, #2ecc71);
-            border-radius: 10px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s;
-            vertical-align: top;
-        }
-        
-        .gallery-item:hover {
-            transform: translateY(-10px);
+        /* Aquí va tu CSS */
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Logo aquí -->
+        <!-- Menú aquí -->
+    </nav>
+    
+    <div class="content">
+        <!-- Secciones de contenido aquí -->
+    </div>
+</body>
+</html>
+```
+
+## 🎨 Propiedades CSS que DEBES Usar
+
+### **Para la Navbar:**
+```css
+position: fixed;
+top: 0;
+width: 100%;
+z-index: [valor apropiado];
+```
+
+### **Para el Menú Desplegable:**
+```css
+position: absolute;
+display: none; /* Inicialmente oculto */
+```
+
+### **Para Mostrar el Menú:**
+```css
+.elemento:hover .dropdown {
+    display: block;
+}
+```
+
+## 🚫 Restricciones
+- **NO usar** Flexbox (`display: flex`)
+- **NO usar** CSS Grid (`display: grid`)
+- **NO usar** transiciones o animaciones
+- **NO usar** JavaScript
+- Solo usar las propiedades vistas en clase
+
+## ✅ Criterios de Evaluación
+
+### **Funcionalidad (40%)**
+- [ ] La navbar permanece fija al hacer scroll
+- [ ] El menú desplegable aparece al hacer hover
+- [ ] El menú desplegable desaparece al quitar el cursor
+- [ ] Los enlaces internos funcionan correctamente
+
+### **Posicionamiento (30%)**
+- [ ] Uso correcto de `position: fixed`
+- [ ] Uso correcto de `position: absolute`
+- [ ] Uso correcto de `position: relative`
+- [ ] `z-index` aplicado correctamente
+
+### **Visualización (20%)**
+- [ ] Uso correcto de `display: inline-block`
+- [ ] Uso correcto de `display: none/block`
+- [ ] El contenido no queda oculto bajo la navbar
+
+### **Código Limpio (10%)**
+- [ ] CSS bien organizado con comentarios
+- [ ] Nombres de clases descriptivos
+- [ ] Estructura HTML semánticamente correcta
+
+## 💡 Tips para Completar el Reto
+
+1. **Comienza con la estructura HTML** básica
+2. **Aplica primero** `position: fixed` a la navbar
+3. **Posiciona el logo** a la izquierda con `display: inline-block`
+4. **Posiciona el menú** a la derecha con `position: absolute`
+5. **Crea el menú desplegable** con `position: absolute` y `display: none`
+6. **Usa `:hover`** para mostrar/ocultar el dropdown
+7. **Ajusta los z-index** si hay problemas de superposición
+8. **Añade contenido** con suficiente altura para probar el scroll
+
+## 🎯 Resultado Esperado
+
+Al finalizar, deberías tener:
+- ✅ Una navbar que permanece fija al hacer scroll
+- ✅ Un menú desplegable funcional que aparece al hacer hover
+- ✅ Enlaces que llevan a secciones específicas de la página
+- ✅ Diseño limpio usando solo posicionamiento básico
+
+## 🔍 Preguntas de Autoevaluación
+
+1. ¿Por qué usas `position: fixed` en lugar de `position: absolute`?
+2. ¿Qué papel juega `position: relative` en el contenedor del dropdown?
+3. ¿Por qué es importante el `z-index` en este proyecto?
+4. ¿Cómo funciona la pseudo-clase `:hover` con `display: none/block`?
+
+---
+
+**¡Buena suerte con tu reto!** 🚀
+
+*Recuerda: El objetivo es practicar los conceptos de posicionamiento, no crear el diseño más bonito. Enfócate en que la funcionalidad sea correcta.*
+
+
