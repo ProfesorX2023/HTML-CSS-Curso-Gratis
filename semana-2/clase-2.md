@@ -267,7 +267,7 @@ Crea una página web que contenga una receta de cocina detallada. Debe incluir:
 
 ### 📌 Ejemplo de Cómo Debería Verse
 
-![Ejercicio 2](ejercicio2.png "Ejercicio 2")
+![Ejercicio 2](ejercicio-2.png "Ejercicio 2")
 
 ### 💡 Consejos para Completar el Reto
 - Usa una imagen de placeholder si no tienes una imagen real: `https://via.placeholder.com/400x300`
