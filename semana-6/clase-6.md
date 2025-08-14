@@ -1,4 +1,4 @@
-# Clase 5: Entendiendo el Modelo de Caja en CSS
+# Clase 6: Entendiendo el Modelo de Caja en CSS
 
 ## 📌 Objetivos de la Clase
 - Comprender el modelo de caja (box model) y sus componentes
