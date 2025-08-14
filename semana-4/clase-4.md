@@ -272,9 +272,8 @@ a:hover {
 - Mantén tu código limpio con comentarios y formato consistente
 - Usa el modelo `box-sizing: border-box` para simplificar el cálculo de tamaños
 
-## 🏆 Ejercicio práctico: Dar estilo a la biografía creada en el Video 1
+## 🏆 Ejercicio práctico: Biografía
 
-En la Clase 1 creaste una página de biografía. Ahora le daremos estilo usando CSS externo.
 
 ### Pasos para completar el ejercicio:
 
@@ -288,81 +287,114 @@ En la Clase 1 creaste una página de biografía. Ahora le daremos estilo usando 
 3. Agrega los siguientes estilos a tu archivo CSS:
 
 ```css
-/* styles.css */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    background-color: #f5f5f5;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    padding: 20px;
-}
+/* Selector de elemento */
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            font-size: 28px;
+            text-transform: uppercase;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 22px;
+        }
+        
+        p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        /* Selector de clase */
+        .contenedor-principal {
+            background-color: white;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        
+        .texto-destacado {
+            background-color: yellow;
+            font-weight: bold;
+            padding: 5px;
+        }
+        
+        .parrafo-importante {
+            color: #e74c3c;
+            font-style: italic;
+            text-align: center;
+        }
+        
+        /* Selector de ID */
+        #cabecera {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        #pie-pagina {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+```
 
-h1 {
-    color: #2c3e50;
-    text-align: center;
-    margin: 20px 0;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #3498db;
-}
+```html
 
-h2 {
-    color: #2980b9;
-    margin: 25px 0 15px;
-}
-
-p {
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-ul {
-    margin-left: 20px;
-    margin-bottom: 20px;
-}
-
-li {
-    margin-bottom: 8px;
-}
-
-strong {
-    color: #c0392b;
-    font-weight: bold;
-}
-
-em {
-    color: #27ae60;
-    font-style: italic;
-}
-
-mark {
-    background-color: #f1c40f;
-    padding: 2px 5px;
-}
-
-/* Estilos adicionales para mejorar la apariencia */
-body {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 5px;
-    padding: 30px;
-}
-
-a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Biografía - CSS Básico</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <!-- Encabezado con ID -->
+    <div id="cabecera">
+        <h1>Mi Biografía Personal</h1>
+    </div>
+    
+    <!-- Contenedor principal con clase -->
+    <div class="contenedor-principal">
+        
+        <h2>Sobre mí</h2>
+        <p>Mi nombre es Juan Pérez y soy estudiante de programación web. Estoy aprendiendo HTML y CSS para crear sitios web increíbles.</p>
+        
+        <h2>Mis intereses</h2>
+        <p>Me gusta mucho la <span class="texto-destacado">programación</span> y el diseño web. También disfruto leer libros de tecnología y escuchar música mientras programo.</p>
+        
+        <!-- CSS en línea -->
+        <p style="color: blue; font-size: 18px; text-decoration: underline;">Este párrafo usa CSS en línea</p>
+        
+        <h2>Mis metas</h2>
+        <p class="parrafo-importante">Mi objetivo es convertirme en un desarrollador web profesional y crear aplicaciones útiles para las personas.</p>
+        
+        <p>Actualmente estoy estudiando HTML, CSS y pronto comenzaré con JavaScript. ¡El mundo de la programación es fascinante!</p>
+        
+    </div>
+    
+    <!-- Pie de página con ID -->
+    <div id="pie-pagina">
+        <p>© 2025 - Mi primera página con CSS</p>
+    </div>
+    
+</body>
+</html>
 ```
 
 4. Personaliza los colores y estilos según tus preferencias
