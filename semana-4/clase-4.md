@@ -272,7 +272,7 @@ a:hover {
 - Mantén tu código limpio con comentarios y formato consistente
 - Usa el modelo `box-sizing: border-box` para simplificar el cálculo de tamaños
 
-## 🏆 Ejercicio práctico: Biografía
+## 🏆 Ejercicio práctico: Portafolio básico
 
 
 ### Pasos para completar el ejercicio:
@@ -288,68 +288,90 @@ a:hover {
 
 ```css
 
-/* Selector de elemento */
+   
+        /* Selectores de elemento */
         body {
-            background-color: #f0f0f0;
+            background-color: #ecf0f1;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.5;
+            color: #2c3e50;
+            line-height: 1.6;
         }
         
         h1 {
-            color: #333;
+            color: white;
             text-align: center;
-            font-size: 28px;
+            font-size: 32px;
             text-transform: uppercase;
         }
         
         h2 {
-            color: #2c3e50;
-            font-size: 22px;
+            color: #34495e;
+            font-size: 24px;
+            text-align: center;
+        }
+        
+        h3 {
+            color: #7f8c8d;
+            font-size: 18px;
         }
         
         p {
-            color: #666;
             font-size: 16px;
-            margin-bottom: 15px;
+            text-align: justify;
         }
         
-        /* Selector de clase */
-        .contenedor-principal {
-            background-color: white;
-            padding: 30px;
-            margin: 20px auto;
-            max-width: 600px;
-        }
-        
-        .texto-destacado {
-            background-color: yellow;
-            font-weight: bold;
-            padding: 5px;
-        }
-        
-        .parrafo-importante {
-            color: #e74c3c;
-            font-style: italic;
+        /* Selectores de clase */
+        .banner-principal {
+            background-color: #9b59b6;
+            color: white;
             text-align: center;
         }
         
-        /* Selector de ID */
-        #cabecera {
+        .seccion-contenido {
+            background-color: white;
+            width: 80%;
+        }
+        
+        .habilidad-destacada {
+            background-color: #f39c12;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .texto-importante {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .proyecto-item {
+            background-color: #bdc3c7;
+            width: 70%;
+        }
+        
+        .contacto-info {
+            background-color: #95a5a6;
+            color: white;
+            text-align: center;
+        }
+        
+        /* Selectores de ID */
+        #encabezado {
+            background-color: #8e44ad;
+            color: white;
+        }
+        
+        #sobre-mi {
             background-color: #3498db;
             color: white;
-            padding: 20px;
-            text-align: center;
         }
         
-        #pie-pagina {
+        #footer {
             background-color: #2c3e50;
             color: white;
             text-align: center;
-            padding: 15px;
-            margin-top: 20px;
         }
+    
         
 ```
 
@@ -359,38 +381,69 @@ a:hover {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Biografía - CSS Básico</title>
+    <title>Portafolio - Ana López</title>
     <link rel="stylesheet" href="styles.css">
+
+
 </head>
 <body>
     
-    <!-- Encabezado con ID -->
-    <div id="cabecera">
-        <h1>Mi Biografía Personal</h1>
+    <!-- Encabezado principal -->
+    <div id="encabezado" class="banner-principal">
+        <h1>Ana López</h1>
+        <h2>Desarrolladora Web Junior</h2>
     </div>
     
-    <!-- Contenedor principal con clase -->
-    <div class="contenedor-principal">
-        
+    <!-- Sección Sobre mí -->
+    <div id="sobre-mi">
         <h2>Sobre mí</h2>
-        <p>Mi nombre es Juan Pérez y soy estudiante de programación web. Estoy aprendiendo HTML y CSS para crear sitios web increíbles.</p>
+        <p>¡Hola! Soy Ana y estoy comenzando mi carrera como desarrolladora web. Me apasiona crear sitios web funcionales y atractivos.</p>
+    </div>
+    
+    <!-- Contenido principal -->
+    <div class="seccion-contenido">
         
-        <h2>Mis intereses</h2>
-        <p>Me gusta mucho la <span class="texto-destacado">programación</span> y el diseño web. También disfruto leer libros de tecnología y escuchar música mientras programo.</p>
+        <h2>Mis Habilidades</h2>
+        <p>Actualmente estoy aprendiendo las siguientes tecnologías:</p>
+        
+        <h3>Lenguajes que manejo:</h3>
+        <p><span class="habilidad-destacada">HTML5</span> - Estructura de páginas web</p>
+        <p><span class="habilidad-destacada">CSS3</span> - Diseño y estilos</p>
         
         <!-- CSS en línea -->
-        <p style="color: blue; font-size: 18px; text-decoration: underline;">Este párrafo usa CSS en línea</p>
+        <p style="background-color: #1abc9c; color: white; font-size: 20px; text-align: center;">¡Próximamente JavaScript!</p>
         
-        <h2>Mis metas</h2>
-        <p class="parrafo-importante">Mi objetivo es convertirme en un desarrollador web profesional y crear aplicaciones útiles para las personas.</p>
+        <h2>Mis Proyectos</h2>
+        <p class="texto-importante">Estos son algunos proyectos que he realizado:</p>
         
-        <p>Actualmente estoy estudiando HTML, CSS y pronto comenzaré con JavaScript. ¡El mundo de la programación es fascinante!</p>
+        <div class="proyecto-item">
+            <h3>Proyecto 1: Mi primera página web</h3>
+            <p>Una página personal creada solo con HTML</p>
+        </div>
+        
+        <div class="proyecto-item">
+            <h3>Proyecto 2: Blog con estilos</h3>
+            <p>Un blog personal usando HTML y CSS básico</p>
+        </div>
+        
+        <div class="proyecto-item">
+            <h3>Proyecto 3: Portafolio</h3>
+            <p>Este mismo portafolio que estás viendo</p>
+        </div>
         
     </div>
     
-    <!-- Pie de página con ID -->
-    <div id="pie-pagina">
-        <p>© 2025 - Mi primera página con CSS</p>
+    <!-- Información de contacto -->
+    <div class="contacto-info">
+        <h2>Contacto</h2>
+        <p>Email: ana.lopez@email.com</p>
+        <p>Teléfono: (555) 123-4567</p>
+    </div>
+    
+    <!-- Pie de página -->
+    <div id="footer">
+        <h3>¡Gracias por visitar mi portafolio!</h3>
+        <p>Creado con HTML y CSS - 2025</p>
     </div>
     
 </body>
@@ -540,312 +593,7 @@ Crea una página web que simule un blog personal. Debe incluir:
 
 ### 📌 Ejemplo de Cómo Debería Verse
 
-**Archivo HTML (blog.html):**
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Blog Personal</title>
-    <link rel="stylesheet" href="blog.css">
-</head>
-<body>
-    <header>
-        <h1>Mi Blog de Tecnología</h1>
-        <p>Aprendiendo y compartiendo sobre desarrollo web</p>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Acerca de</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <div class="container">
-        <main>
-            <article class="post">
-                <h2>Primeros pasos en HTML</h2>
-                <p class="post-date">Publicado el 15 de mayo de 2024</p>
-                <p>En este artículo comparto mis primeros pasos aprendiendo HTML...</p>
-            </article>
-            
-            <article class="post">
-                <h2>Introducción a CSS</h2>
-                <p class="post-date">Publicado el 22 de mayo de 2024</p>
-                <p>Descubre cómo CSS transforma tus páginas HTML...</p>
-            </article>
-        </main>
-
-        <aside class="sidebar">
-            <img src="perfil.jpg" alt="Foto de perfil">
-            <h3>Sobre mí</h3>
-            <p>Soy un apasionado de la tecnología y el desarrollo web...</p>
-            <h3>Redes sociales</h3>
-            <ul>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="#">GitHub</a></li>
-            </ul>
-        </aside>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Mi Blog Personal. Todos los derechos reservados.</p>
-        <a href="#">Política de privacidad</a>
-    </footer>
-</body>
-</html>
-```
-
-**Archivo CSS (blog.css):**
-```css
-/* ==============================
-   1. RESET Y NORMALIZACIÓN
-   ============================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* ==============================
-   2. VARIABLES CSS (THEME)
-   ============================== */
-:root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --light-color: #f8f9fa;
-    --dark-color: #2c3e50;
-    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --font-heading: 'Georgia', serif;
-    --font-size-base: 16px;
-    --line-height: 1.6;
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 1.5rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 3rem;
-}
-
-/* ==============================
-   3. ELEMENTOS BASE
-   ============================== */
-body {
-    font-family: var(--font-main);
-    line-height: var(--line-height);
-    color: #333;
-    background-color: var(--light-color);
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    margin-bottom: var(--spacing-sm);
-}
-
-p {
-    margin-bottom: var(--spacing-md);
-}
-
-a {
-    color: var(--secondary-color);
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* ==============================
-   4. COMPONENTES REUTILIZABLES
-   ============================== */
-.btn {
-    display: inline-block;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    background-color: var(--secondary-color);
-    color: white;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background-color: var(--dark-color);
-}
-
-.card {
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
-}
-
-/* ==============================
-   5. LAYOUT PRINCIPAL
-   ============================== */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--spacing-md);
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: var(--spacing-lg);
-}
-
-/* ==============================
-   6. HEADER
-   ============================== */
-header {
-    background-color: var(--primary-color);
-    color: white;
-    text-align: center;
-    padding: var(--spacing-xl) var(--spacing-md);
-}
-
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-sm);
-}
-
-header p {
-    font-size: 1.2rem;
-    margin-bottom: var(--spacing-lg);
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-lg);
-}
-
-nav a {
-    color: white;
-    font-weight: bold;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-nav a:hover {
-    background-color: rgba(255,255,255,0.2);
-    text-decoration: none;
-}
-
-/* ==============================
-   7. MAIN CONTENT
-   ============================== */
-main {
-    background: white;
-    border-radius: 8px;
-    padding: var(--spacing-lg);
-}
-
-.post {
-    border-bottom: 1px solid #eee;
-    padding-bottom: var(--spacing-lg);
-    margin-bottom: var(--spacing-lg);
-}
-
-.post:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-}
-
-.post h2 {
-    color: var(--primary-color);
-    font-size: 1.8rem;
-    margin-bottom: var(--spacing-xs);
-}
-
-.post-date {
-    color: #666;
-    font-size: 0.9rem;
-    font-style: italic;
-    margin-bottom: var(--spacing-md);
-}
-
-/* ==============================
-   8. SIDEBAR
-   ============================== */
-.sidebar {
-    background: white;
-    border-radius: 8px;
-    padding: var(--spacing-lg);
-    height: fit-content;
-}
-
-.sidebar img {
-    width: 100%;
-    max-width: 150px;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto var(--spacing-md);
-}
-
-.sidebar h3 {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: var(--spacing-xs);
-    margin-bottom: var(--spacing-sm);
-}
-
-.sidebar ul {
-    list-style: none;
-}
-
-.sidebar li {
-    margin-bottom: var(--spacing-xs);
-}
-
-.sidebar a {
-    display: block;
-    padding: var(--spacing-xs);
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.sidebar a:hover {
-    background-color: var(--light-color);
-    text-decoration: none;
-}
-
-/* ==============================
-   9. FOOTER
-   ============================== */
-footer {
-    background-color: var(--dark-color);
-    color: white;
-    text-align: center;
-    padding: var(--spacing-lg);
-    margin-top: var(--spacing-xl);
-}
-
-footer a {
-    color: var(--secondary-color);
-    margin-left: var(--spacing-md);
-}
-
-/* ==============================
-   10. RESPONSIVE DESIGN
-   ============================== */
-@media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-    
-    header h1 {
-        font-size: 2rem;
-    }
-}
-```
 
 ### 💡 Consejos para Completar el Reto
 - Empieza con la estructura HTML antes de añadir estilos
