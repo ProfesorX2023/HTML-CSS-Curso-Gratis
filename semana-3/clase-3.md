@@ -162,107 +162,53 @@ Aunque HTML5 introdujo etiquetas semánticas (`<header>`, `<footer>`, `<article>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sección Multimedia - Blog de Viajes</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        
-        .blog-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        
-        .post-header {
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 20px;
-        }
-        
-        .post-header h1 {
-            color: #2c3e50;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        .post-date {
-            color: #7f8c8d;
-            font-style: italic;
-        }
-        
-        .audio-section, .video-section, .description {
-            margin-bottom: 40px;
-            padding: 20px;
-            background-color: #ecf0f1;
-            border-radius: 8px;
-        }
-        
-        .section-title {
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-        }
-        
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+    <title>Mi Sitio Web - Tarea HTML</title>
 </head>
 <body>
-    <div class="blog-container">
-        <div class="post-header">
-            <h1>Explorando los Sonidos y Visuales de la Naturaleza</h1>
-            <p class="post-date">Publicado el 20 de mayo de 2024</p>
+    <!-- Contenedor general -->
+    <div class="sitio-web">
+        
+        <!-- Encabezado -->
+        <div class="encabezado">
+            <h1>Mi Sitio Web Personal</h1>
+            <p>Tarea de HTML con multimedia</p>
         </div>
         
-        <div class="post-content">
-            <div class="audio-section">
-                <h2 class="section-title">Sonidos de la Selva</h2>
-                <p>Escucha los increíbles sonidos de la selva tropical en este audio grabado durante mi viaje a la Amazonía.</p>
-                <audio controls style="width: 100%; margin-top: 15px;">
-                    <source src="audio/selva.mp3" type="audio/mpeg">
-                    Tu navegador no soporta el elemento de audio.
+        <!-- Contenido principal -->
+        <div class="contenido-principal">
+            
+            <!-- Sección multimedia -->
+            <div class="multimedia-seccion">
+                <h2>Mi contenido multimedia</h2>
+                
+                <h3>Video favorito:</h3>
+                <video controls width="350" poster="portada.jpg">
+                    <source src="mi-video.mp4" type="video/mp4">
+                    <source src="mi-video.webm" type="video/webm">
+                    Tu navegador no soporta video.
+                </video>
+                
+                <h3>Música que me gusta:</h3>
+                <audio controls>
+                    <source src="cancion-favorita.mp3" type="audio/mpeg">
+                    <source src="cancion-favorita.ogg" type="audio/ogg">
+                    Tu navegador no soporta audio.
                 </audio>
             </div>
             
-            <div class="video-section">
-                <h2 class="section-title">Puesta de Sol en la Montaña</h2>
-                <p>Vive la experiencia de una impresionante puesta de sol desde la cima de la montaña Nevado.</p>
-                <div class="video-container">
-                    <video controls poster="imagenes/poster.jpg">
-                        <source src="video/puesta-de-sol.mp4" type="video/mp4">
-                        <source src="video/puesta-de-sol.webm" type="video/webm">
-                        Tu navegador no soporta el elemento de video.
-                    </video>
-                </div>
+            <!-- Información personal -->
+            <div class="info-personal">
+                <h2>Acerca de mí</h2>
+                <p>Soy estudiante y estoy aprendiendo HTML. Esta página demuestra cómo usar videos, audio y divs para organizar contenido.</p>
             </div>
             
-            <div class="description">
-                <h2 class="section-title">Descripción</h2>
-                <p>Esta sección multimedia forma parte de mi serie "Viajes alrededor del mundo", donde comparto experiencias auditivas y visuales de mis viajes. Los sonidos y videos son grabaciones originales que realicé durante mis expediciones.</p>
-                <p>Si deseas más contenido similar, ¡no olvides suscribirte a mi canal!</p>
-            </div>
         </div>
+        
+        <!-- Pie de página -->
+        <div class="pie">
+            <p>© 2025 - Creado por [Tu Nombre]</p>
+        </div>
+        
     </div>
 </body>
 </html>
@@ -318,156 +264,7 @@ Crea una página web que simule una galería multimedia de viajes. Debe incluir:
 
 ### 📌 Ejemplo de Cómo Debería Verse
 
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería Multimedia de Viajes</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        
-        header {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-        
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            background-color: #34495e;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-        
-        nav ul li {
-            margin: 0 20px;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 15px;
-            display: block;
-        }
-        
-        nav ul li a:hover {
-            background-color: #3498db;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        section {
-            margin-bottom: 50px;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-        }
-        
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .gallery img {
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Galería Multimedia de Viajes</h1>
-        <p>Explora el mundo a través de sonidos e imágenes</p>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#selva">Selva</a></li>
-            <li><a href="#montanas">Montañas</a></li>
-            <li><a href="#playas">Playas</a></li>
-            <li><a href="#ciudades">Ciudades</a></li>
-        </ul>
-    </nav>
-    
-    <div class="container">
-        <section id="selva">
-            <h2>Selva Amazónica</h2>
-            
-            <div class="audio-container">
-                <h3>Sonidos de la Selva</h3>
-                <p>Escucha los sonidos de la selva tropical en su estado natural.</p>
-                <audio controls style="width: 100%; margin-top: 10px;">
-                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                    <source src="audio/selva.ogg" type="audio/ogg">
-                    Tu navegador no soporta el elemento de audio.
-                </audio>
-            </div>
-            
-            <div class="video-container">
-                <h3>Video de la Selva</h3>
-                <p>Vive la experiencia de la selva amazónica.</p>
-                <video controls poster="https://via.placeholder.com/800x450?text=Selva+Amazónica" style="width: 100%; margin-top: 10px;">
-                    <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
-                    <source src="video/selva.webm" type="video/webm">
-                    Tu navegador no soporta el elemento de video.
-                </video>
-            </div>
-            
-            <div class="gallery">
-                <img src="https://via.placeholder.com/250x150?text=Flora" alt="Flora de la selva">
-                <img src="https://via.placeholder.com/250x150?text=Fauna" alt="Fauna de la selva">
-                <img src="https://via.placeholder.com/250x150?text=Río" alt="Río en la selva">
-                <img src="https://via.placeholder.com/250x150?text=Cascada" alt="Cascada en la selva">
-            </div>
-        </section>
-        
-        <section id="montanas">
-            <h2>Montañas</h2>
-            <!-- Contenido similar para montañas -->
-        </section>
-        
-        <section id="playas">
-            <h2>Playas</h2>
-            <!-- Contenido similar para playas -->
-        </section>
-        
-        <section id="ciudades">
-            <h2>Ciudades</h2>
-            <!-- Contenido similar para ciudades -->
-        </section>
-    </div>
-    
-    <footer>
-        <p>&copy; 2024 Galería Multimedia de Viajes. Todos los derechos reservados.</p>
-    </footer>
-</body>
-</html>
-```
+![Ejercicio 3](ejercicio-3.png)
 
 ### 💡 Consejos para Completar el Reto
 - Usa enlaces de placeholder para audio y video si no tienes archivos propios
