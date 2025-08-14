@@ -122,7 +122,7 @@ Alto total = margin-top + border-top + padding-top + height + padding-bottom + b
 }
 ```
 
-## 🏆 Ejercicio Práctico: Tarjetas de Producto
+## 🏆 Ejercicio Práctico: Tarjetas de Productos
 
 ### HTML Completo
 ```html
@@ -130,513 +130,214 @@ Alto total = margin-top + border-top + padding-top + height + padding-bottom + b
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarjetas de Producto - Modelo de Caja</title>
+    <title>Tienda de Productos - Modelo de Caja</title>
+    
+    <!-- CSS Interno -->
     <style>
-        /* Reset básico y box-sizing */
+        /* Configuración recomendada para box-sizing */
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
-
+        
+        /* Selectores de elemento */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .product-image {
-            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-title {
-            font-size: 1.4rem;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
             color: #333;
-            margin-bottom: 10px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
         }
-
-        .product-description {
-            color: #666;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
-        .product-price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #e74c3c;
-            margin-bottom: 15px;
-        }
-
-        .product-tags {
-            margin-bottom: 20px;
-        }
-
-        .tag {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-right: 8px;
-            margin-bottom: 5px;
-        }
-
-        .tag:nth-child(even) {
-            background: #2ecc71;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: background 0.3s ease;
+        
+        h1 {
             text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin: 20px 0;
+            padding: 15px;
+            border: 3px solid #3498db;
+            border-radius: 10px;
+        }
+        
+        h2 {
+            color: #34495e;
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            padding: 10px;
+            border-left: 5px solid #e74c3c;
+        }
+        
+        h3 {
+            color: #2980b9;
+            margin: 15px 0 10px 0;
+            padding: 8px;
+        }
+        
+        p {
+            margin: 10px 0;
+            padding: 5px;
+        }
+        
+        /* Selectores de clase */
+        .contenedor-principal {
+            background-color: white;
+            width: 90%;
+            margin: 20px auto;
+            padding: 30px;
+            border: 2px solid #bdc3c7;
+            border-radius: 15px;
+        }
+        
+        .tarjeta-producto {
+            background-color: #ecf0f1;
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #95a5a6;
+            border-radius: 8px;
+        }
+        
+        .precio-producto {
+            background-color: #27ae60;
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0;
+            padding: 15px;
+            border: 3px solid #229954;
+            border-radius: 25px;
+        }
+        
+        .boton-comprar {
+            background-color: #e67e22;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            padding: 12px 25px;
+            border: 2px solid #d35400;
+            border-radius: 5px;
             width: 100%;
         }
-
-        .btn:hover {
-            background: #5a6fd8;
+        
+        .caja-destacada {
+            background-color: #fff3cd;
+            border: 3px dashed #ffc107;
+            margin: 25px 0;
+            padding: 20px;
+            border-radius: 12px;
         }
-
-        @media (max-width: 768px) {
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
+        
+        .texto-con-borde {
+            border: 1px solid #6c757d;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+        }
+        
+        /* Selectores de ID */
+        #encabezado-tienda {
+            background-color: #3498db;
+            color: white;
+            margin: 0 0 30px 0;
+            padding: 25px;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        #seccion-productos {
+            margin: 30px 0;
+            padding: 25px;
+            border: 2px solid #d5dbdb;
+        }
+        
+        #pie-tienda {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            margin: 30px 0 0 0;
+            padding: 20px;
+            border-top: 4px solid #34495e;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Nuestra Colección de Productos</h1>
-            <p class="subtitle">Descubre nuestros productos destacados con diseños modernos y funcionalidades excepcionales</p>
-        </header>
-        
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-image">Imagen del Producto 1</div>
-                <div class="product-info">
-                    <h2 class="product-title">Producto Premium</h2>
-                    <p class="product-description">Diseño elegante y funcionalidad avanzada para satisfacer todas tus necesidades.</p>
-                    <p class="product-price">Q 299.99</p>
-                    <div class="product-tags">
-                        <span class="tag">Destacado</span>
-                        <span class="tag">Nuevo</span>
-                    </div>
-                    <a href="#" class="btn">Agregar al carrito</a>
-                </div>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image">Imagen del Producto 2</div>
-                <div class="product-info">
-                    <h2 class="product-title">Producto Estándar</h2>
-                    <p class="product-description">Calidad confiable a un precio accesible, perfecto para uso diario.</p>
-                    <p class="product-price">Q 149.99</p>
-                    <div class="product-tags">
-                        <span class="tag">Popular</span>
-                    </div>
-                    <a href="#" class="btn">Agregar al carrito</a>
-                </div>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image">Imagen del Producto 3</div>
-                <div class="product-info">
-                    <h2 class="product-title">Producto Básico</h2>
-                    <p class="product-description">Esencial y funcional, todo lo que necesitas sin complicaciones.</p>
-                    <p class="product-price">Q 79.99</p>
-                    <div class="product-tags">
-                        <span class="tag">Económico</span>
-                        <span class="tag">Mejor valor</span>
-                    </div>
-                    <a href="#" class="btn">Agregar al carrito</a>
-                </div>
-            </div>
-        </div>
+    
+    <!-- Encabezado de la tienda -->
+    <div id="encabezado-tienda">
+        <h1>TechStore</h1>
+        <p style="font-size: 1.2em; margin: 0; padding: 5px;">Los mejores productos tecnológicos</p>
     </div>
+    
+    <!-- Contenedor principal -->
+    <div class="contenedor-principal">
+        
+        <h2>Productos Destacados</h2>
+        
+        <div class="caja-destacada">
+            <h3>¡Ofertas Especiales!</h3>
+            <p>Todos nuestros productos tienen <strong>descuentos</strong> especiales esta semana.</p>
+        </div>
+        
+        <!-- Sección de productos -->
+        <div id="seccion-productos">
+            
+            <!-- Primera tarjeta de producto -->
+            <div class="tarjeta-producto">
+                <h3>Laptop Gaming Pro</h3>
+                <p class="texto-con-borde">Procesador Intel i7, 16GB RAM, RTX 3060, SSD 512GB</p>
+                
+                <div class="precio-producto">$1,299.99</div>
+                
+                <p>Perfecta para gaming y trabajo profesional. Incluye garantía de 2 años.</p>
+                
+                <div class="boton-comprar">COMPRAR AHORA</div>
+            </div>
+            
+            <!-- Segunda tarjeta de producto -->
+            <div class="tarjeta-producto">
+                <h3>Smartphone Ultra</h3>
+                <p class="texto-con-borde">128GB almacenamiento, cámara triple, pantalla AMOLED 6.5"</p>
+                
+                <div class="precio-producto">$699.99</div>
+                
+                <p>El teléfono más avanzado del mercado con tecnología 5G incluida.</p>
+                
+                <div class="boton-comprar">COMPRAR AHORA</div>
+            </div>
+            
+            <!-- CSS en línea para demostrar variedad -->
+            <div style="background-color: #e8f5e8; border: 2px solid #4caf50; margin: 25px auto; padding: 20px; width: 300px; border-radius: 10px;">
+                <h3 style="color: #2e7d32; margin: 0 0 15px 0;">Envío Gratis</h3>
+                <p style="margin: 0; padding: 5px;">En compras mayores a $500. Entrega en 24-48 horas.</p>
+            </div>
+            
+        </div>
+        
+        <h2>¿Por qué elegirnos?</h2>
+        
+        <div style="border: 2px dotted #9b59b6; padding: 20px; margin: 20px 0; background-color: #f8f9fa;">
+            <p><strong>✓ Garantía extendida:</strong> Todos nuestros productos incluyen garantía</p>
+            <p><strong>✓ Soporte técnico:</strong> Atención 24/7 para resolver tus dudas</p>
+            <p><strong>✓ Mejores precios:</strong> Precios competitivos en el mercado</p>
+        </div>
+        
+    </div>
+    
+    <!-- Pie de página -->
+    <div id="pie-tienda">
+        <p style="margin: 0 0 10px 0; font-size: 1.1em;">📧 contacto@techstore.com | 📞 (555) 123-4567</p>
+        <p style="margin: 0; padding: 5px;">© 2025 TechStore - Modelo de Caja CSS</p>
+    </div>
+    
 </body>
-</html>
 ```
 
 ## 🏆 Reto Adicional: Catálogo de Productos Responsivo
 
 ### HTML del Catálogo Avanzado
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Productos Responsivo</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #7f8c8d;
-            font-size: 1.1rem;
-        }
-
-        .filters {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 8px 20px;
-            background: #ecf0f1;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: #3498db;
-            color: white;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .product-image {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            position: relative;
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-title {
-            font-size: 1.2rem;
-            color: #2c3e50;
-            margin-bottom: 8px;
-        }
-
-        .product-description {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-bottom: 12px;
-        }
-
-        .product-price {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #e74c3c;
-            margin-bottom: 10px;
-        }
-
-        .product-meta {
-            display: flex;
-            gap: 15px;
-            font-size: 0.8rem;
-            color: #95a5a6;
-            margin-bottom: 12px;
-        }
-
-        .product-tags {
-            margin-bottom: 15px;
-        }
-
-        .tag {
-            display: inline-block;
-            background: #ecf0f1;
-            color: #2c3e50;
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.7rem;
-            margin-right: 6px;
-            margin-bottom: 4px;
-        }
-
-        .btn-container {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn {
-            flex: 1;
-            padding: 10px;
-            text-decoration: none;
-            text-align: center;
-            border-radius: 6px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .btn-primary {
-            background: #3498db;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #2980b9;
-        }
-
-        .btn-secondary {
-            background: #ecf0f1;
-            color: #2c3e50;
-        }
-
-        .btn-secondary:hover {
-            background: #bdc3c7;
-        }
-
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 40px;
-        }
-
-        .page {
-            padding: 10px 15px;
-            text-decoration: none;
-            background: white;
-            color: #2c3e50;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
-
-        .page.active,
-        .page:hover {
-            background: #3498db;
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            .product-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-            
-            .filters {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Catálogo de Productos</h1>
-            <p class="subtitle">Encuentra exactamente lo que necesitas</p>
-        </header>
-        
-        <div class="filters">
-            <button class="filter-btn active">Todos</button>
-            <button class="filter-btn">Electrónica</button>
-            <button class="filter-btn">Ropa</button>
-            <button class="filter-btn">Hogar</button>
-            <button class="filter-btn">Deportes</button>
-        </div>
-        
-        <div class="product-grid">
-            <!-- Producto 1 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <span>Imagen del Producto 1</span>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-title">Smartphone Pro Max</h2>
-                    <p class="product-description">Teléfono inteligente de última generación con cámara de 108MP y 5G.</p>
-                    <p class="product-price">Q 2,499.99</p>
-                    <div class="product-meta">
-                        <span>⭐ 4.7 (1,234 reseñas)</span>
-                        <span>🔥 156 vendidos</span>
-                    </div>
-                    <div class="product-tags">
-                        <span class="tag">Electrónica</span>
-                        <span class="tag">Destacado</span>
-                    </div>
-                    <div class="btn-container">
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                        <a href="#" class="btn btn-secondary">+ Lista</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Producto 2 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <span>Imagen del Producto 2</span>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-title">Laptop Ultra Slim</h2>
-                    <p class="product-description">Laptop ultraligera con procesador i7, 16GB de RAM y SSD de 512GB.</p>
-                    <p class="product-price">Q 4,799.99</p>
-                    <div class="product-meta">
-                        <span>⭐ 4.5 (876 reseñas)</span>
-                        <span>🔥 98 vendidos</span>
-                    </div>
-                    <div class="product-tags">
-                        <span class="tag">Electrónica</span>
-                        <span class="tag">Nuevo</span>
-                    </div>
-                    <div class="btn-container">
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                        <a href="#" class="btn btn-secondary">+ Lista</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Producto 3 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <span>Imagen del Producto 3</span>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-title">Reloj Inteligente</h2>
-                    <p class="product-description">Monitor de salud avanzado con GPS, resistente al agua y hasta 7 días de batería.</p>
-                    <p class="product-price">Q 799.99</p>
-                    <div class="product-meta">
-                        <span>⭐ 4.8 (2,345 reseñas)</span>
-                        <span>🔥 320 vendidos</span>
-                    </div>
-                    <div class="product-tags">
-                        <span class="tag">Electrónica</span>
-                        <span class="tag">Mejor valor</span>
-                    </div>
-                    <div class="btn-container">
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                        <a href="#" class="btn btn-secondary">+ Lista</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="pagination">
-            <a href="#" class="page active">1</a>
-            <a href="#" class="page">2</a>
-            <a href="#" class="page">3</a>
-            <a href="#" class="page">4</a>
-            <a href="#" class="page">5</a>
-            <a href="#" class="page">→</a>
-        </div>
-    </div>
-</body>
-</html>
-```
+![Ejercicio 6](ejercicio-6.png)
 
 ## 📎 Cheat Sheet del Modelo de Caja
 
