@@ -164,47 +164,6 @@ p {
 - Puedes combinar selectores: `h1, h2, h3 { color: blue; }`
 - Los selectores de clase e ID pueden usarse con elementos: `p.texto-destacado { ... }`
 
-## 🖌️ Propiedades esenciales para texto y colores
-
-### Propiedades de texto:
-```css
-.texto-ejemplo {
-    color: #333;                /* Color del texto */
-    font-family: Arial, sans-serif; /* Tipo de letra */
-    font-size: 16px;            /* Tamaño de fuente */
-    font-weight: bold;          /* Peso de la fuente (normal, bold, 400, 700) */
-    font-style: italic;         /* Estilo (normal, italic) */
-    text-align: center;         /* Alineación (left, right, center, justify) */
-    text-decoration: underline; /* Decoración (none, underline, overline, line-through) */
-    line-height: 1.5;           /* Altura de línea */
-    text-transform: uppercase;  /* Transformación (none, uppercase, lowercase, capitalize) */
-    letter-spacing: 1px;        /* Espacio entre letras */
-    word-spacing: 2px;          /* Espacio entre palabras */
-}
-```
-
-### Modelos de color:
-```css
-.ejemplo-colores {
-    color: red;                 /* Nombre del color */
-    color: #ff0000;             /* Hexadecimal */
-    color: rgb(255, 0, 0);     /* RGB */
-    color: rgba(255, 0, 0, 0.5); /* RGBA (con transparencia) */
-    color: hsl(0, 100%, 50%);  /* HSL */
-    color: hsla(0, 100%, 50%, 0.5); /* HSLA (con transparencia) */
-}
-```
-
-### Propiedades de fondo:
-```css
-.ejemplo-fondo {
-    background-color: #f0f0f0;  /* Color de fondo */
-    background-image: url("imagen.jpg"); /* Imagen de fondo */
-    background-repeat: no-repeat; /* Repetición (repeat, no-repeat, repeat-x, repeat-y) */
-    background-position: center; /* Posición (left, center, right, top, bottom, valores en px/% */
-    background-size: cover;     /* Tamaño (auto, cover, contain, valores específicos) */
-}
-```
 
 ## 📋 Sintaxis correcta y buenas prácticas
 
@@ -571,42 +530,19 @@ p {
 
 ¡Felicidades por completar los ejercicios de CSS básico! Aquí tienes un reto adicional para que practiques aún más:
 
-### 📚 Descripción del Reto
-Crea una página web que simule un blog personal. Debe incluir:
-
-- Un diseño con CSS externo bien organizado siguiendo la estructura recomendada
-- Un encabezado (`<header>`) con:
-  - Título del blog
-  - Breve descripción
-  - Navegación básica (Inicio, Acerca de, Contacto)
-- Contenido principal (`<main>`) con:
-  - Al menos 2 artículos de blog
-  - Cada artículo debe tener título, fecha y contenido
-  - Usa clases para estilos consistentes
-- Un sidebar (`<aside>`) con:
-  - Foto de perfil
-  - Breve biografía
-  - Enlaces a redes sociales
-- Un pie de página (`<footer>`) con:
-  - Copyright
-  - Enlace a política de privacidad
 
 ### 📌 Ejemplo de Cómo Debería Verse
 
-
+![Ejercicio 4.1](ejercicio-4-1.png)
+![Ejercicio 4.1](ejercicio-4-2.png)
 
 ### 💡 Consejos para Completar el Reto
 - Empieza con la estructura HTML antes de añadir estilos
-- Usa variables CSS para colores y espaciado
 - Organiza tu CSS siguiendo la estructura recomendada
-- Aplica el reset CSS básico (`* { margin: 0; padding: 0; box-sizing: border-box; }`)
-- Usa unidades relativas (rem, em) en lugar de px para mayor flexibilidad
 - Experimenta con diferentes combinaciones de colores y tipografías
 - Usa Google Fonts para añadir fuentes profesionales a tu blog
 
 ### 📅 Entrega
-¡Tómate el tiempo que necesites! Cuando termines, comparte tu código en el grupo de WhatsApp y te daré feedback personalizado.
-
-**Bonus**: Si completas este reto, ¡recibirás una guía avanzada de CSS con técnicas que aprenderemos en la próxima clase!
+¡Tómate el tiempo que necesites!
 
 ¿Te animas a aceptar el reto? ¡Tu blog personal podría ser el inicio de tu presencia en línea como desarrollador web! 🌐✏️
