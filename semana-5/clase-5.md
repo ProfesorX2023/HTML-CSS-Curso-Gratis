@@ -236,82 +236,194 @@ Formato: `text-shadow: h-shadow v-shadow blur-radius color;`
 }
 ```
 
-## 🏆 Ejercicio práctico: Banner tipográfico básico
+## 🏆 Ejercicio práctico: Mi Estudio de Diseño Explorando Texto y Color
 
 ```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banner Tipográfico</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>Mi Estudio de Diseño - Propiedades Avanzadas</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Interno -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        /* Selectores de elemento */
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .banner {
-            width: 100%;
-            max-width: 800px;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            border-radius: 15px;
-            padding: 60px 40px;
-            text-align: center;
-            color: white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .banner-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .banner-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
+            background-color: #f4f4f4;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
             line-height: 1.6;
         }
         
-        .banner-button {
-            display: inline-block;
-            background-color: #fff;
-            color: #6a11cb;
-            padding: 15px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            text-align: center;
+            color: #2c3e50;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
         }
         
-        .banner-button:hover {
-            transform: translateY(-2px);
+        h2 {
+            font-size: 1.8em;
+            font-weight: 400;
+            color: #e74c3c;
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #34495e;
+        }
+        
+        p {
+            font-size: 1rem;
+            text-align: justify;
+        }
+        
+        /* Selectores de clase */
+        .banner-principal {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+        }
+        
+        .contenedor-principal {
+            background-color: white;
+            width: 80%;
+        }
+        
+        .titulo-con-sombra {
+            font-size: 2em;
+            color: #fff;
+            text-shadow: 0 0 10px #ff6b6b, 
+                         0 0 20px #ff6b6b, 
+                         0 0 30px #ff6b6b;
+            text-align: center;
+        }
+        
+        .texto-hexadecimal {
+            color: #FF6B35;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+        
+        .texto-rgb {
+            color: rgb(46, 204, 113);
+            font-weight: 500;
+            font-size: 18px;
+        }
+        
+        .texto-rgba {
+            color: rgba(155, 89, 182, 0.8);
+            font-weight: bold;
+            background-color: rgba(241, 196, 15, 0.2);
+        }
+        
+        .fuente-georgia {
+            font-family: 'Georgia', serif;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        
+        .texto-centrado {
+            text-align: center;
+            font-size: 1.5em;
+            color: #2980b9;
+        }
+        
+        .texto-derecha {
+            text-align: right;
+            color: #8e44ad;
+            font-weight: 300;
+        }
+        
+        .sombra-doble {
+            text-shadow: 1px 1px 0 #fff, 
+                         3px 3px 0 #333;
+            font-size: 1.4em;
+            color: #e67e22;
+            font-weight: 700;
+        }
+        
+        /* Selectores de ID */
+        #encabezado {
+            background-color: #34495e;
+            color: white;
+        }
+        
+        #seccion-colores {
+            background-color: #ecf0f1;
+        }
+        
+        #pie-pagina {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="banner">
-        <h1 class="banner-title">Diseño Creativo</h1>
-        <p class="banner-subtitle">Transforma tus ideas en realidad con tipografía moderna y colores vibrantes</p>
-        <a href="#" class="banner-button">Comenzar Ahora</a>
+    
+    <!-- Encabezado con efectos -->
+    <div id="encabezado" class="banner-principal">
+        <h1>Mi Estudio de Diseño</h1>
+        <div class="titulo-con-sombra">
+            <h2>Explorando Texto y Color</h2>
+        </div>
     </div>
+    
+    <!-- Contenido principal -->
+    <div class="contenedor-principal">
+        
+        <h2>Bienvenidos a mi portfolio</h2>
+        <p>Esta página demuestra el uso de propiedades avanzadas de texto y diferentes modelos de color en CSS.</p>
+        
+        <!-- Sección de colores -->
+        <div id="seccion-colores">
+            <h3 class="sombra-doble">Explorando Colores</h3>
+            
+            <p class="texto-hexadecimal">Este texto usa color hexadecimal #FF6B35</p>
+            <p class="texto-rgb">Este texto usa RGB: rgb(46, 204, 113)</p>
+            <p class="texto-rgba">Este texto usa RGBA con transparencia</p>
+            
+            <!-- CSS en línea con diferentes modelos -->
+            <p style="color: #9b59b6; font-size: 20px; font-weight: 800; text-align: center;">Texto con CSS en línea usando hexadecimal</p>
+        </div>
+        
+        <!-- Sección de tipografías -->
+        <h3>Diferentes Tipografías</h3>
+        
+        <p>Este párrafo usa la fuente Roboto (Google Fonts) con peso normal.</p>
+        <p class="fuente-georgia">Este párrafo usa Georgia, una fuente serif elegante y cursiva.</p>
+        
+        <!-- Sección de alineaciones -->
+        <h3>Alineaciones de Texto</h3>
+        
+        <p class="texto-centrado">Texto centrado con color azul</p>
+        <p class="texto-derecha">Texto alineado a la derecha</p>
+        <p>Texto justificado que se extiende de manera uniforme a lo largo de toda la línea, creando márgenes parejos en ambos lados del párrafo para una apariencia más formal y organizada.</p>
+        
+        <!-- Sección de efectos -->
+        <h3>Efectos de Texto</h3>
+        <p class="sombra-doble">Texto con sombra doble</p>
+        
+        <div style="background-color: #2c3e50;">
+            <p style="color: #fff; text-shadow: 0 0 8px #3498db, 0 0 16px #3498db; font-size: 1.3em; text-align: center; font-weight: 600;">Efecto de resplandor azul</p>
+        </div>
+        
+    </div>
+    
+    <!-- Pie de página -->
+    <div id="pie-pagina">
+        <h3 style="font-size: 1.2em; font-weight: 400;">¡Gracias por explorar mis diseños!</h3>
+        <p style="font-size: 0.9em; color: rgba(255, 255, 255, 0.8);">Creado con propiedades avanzadas de CSS - 2025</p>
+    </div>
+    
 </body>
 </html>
 ```
@@ -358,176 +470,13 @@ Formato: `text-shadow: h-shadow v-shadow blur-radius color;`
 
 Crea un banner de bienvenida para un sitio web específico con:
 
-- Diseño responsivo
 - Al menos dos fuentes diferentes
 - Paleta de colores coherente
 - Efectos de sombra de texto
 - Llamado a la acción destacado
-- Animaciones sutiles (opcional)
 
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banner de Bienvenida - Blog Personal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Raleway', sans-serif;
-            background-color: #f8f9fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .welcome-banner {
-            width: 100%;
-            max-width: 1000px;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80') 
-                        no-repeat center center/cover;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-            color: white;
-        }
-        
-        .banner-content {
-            padding: 60px 50px;
-            text-align: center;
-        }
-        
-        .banner-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-            letter-spacing: -0.5px;
-        }
-        
-        .banner-subtitle {
-            font-size: 1.6rem;
-            font-weight: 300;
-            margin-bottom: 35px;
-            line-height: 1.7;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.95;
-        }
-        
-        .banner-highlight {
-            color: #f1c40f;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-            font-weight: 600;
-        }
-        
-        .banner-cta {
-            display: inline-block;
-            background-color: #f1c40f;
-            color: #2c3e50;
-            padding: 18px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(241, 196, 15, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .banner-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(241, 196, 15, 0.4);
-            background-color: #f39c12;
-        }
-        
-        .banner-stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #f1c40f;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-top: 5px;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .banner-content {
-                padding: 40px 30px;
-            }
-            
-            .banner-title {
-                font-size: 2.5rem;
-            }
-            
-            .banner-subtitle {
-                font-size: 1.3rem;
-            }
-            
-            .banner-stats {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="welcome-banner">
-        <div class="banner-content">
-            <h1 class="banner-title">Bienvenido a mi <span class="banner-highlight">Blog</span></h1>
-            <p class="banner-subtitle">
-                Descubre historias inspiradoras, consejos útiles y contenido de calidad 
-                que transformará tu perspectiva del mundo digital
-            </p>
-            <a href="#" class="banner-cta">Explorar Contenido</a>
-            
-            <div class="banner-stats">
-                <div class="stat-item">
-                    <div class="stat-number">150+</div>
-                    <div class="stat-label">Artículos</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">5K+</div>
-                    <div class="stat-label">Lectores</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">25+</div>
-                    <div class="stat-label">Categorías</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-```
+![Ejercicio 5](ejercicio-5.png)
+
 
 ## 📚 Pasos para completar el ejercicio
 
@@ -536,7 +485,6 @@ Crea un banner de bienvenida para un sitio web específico con:
 3. Agrega la sección de estilos en el `<head>`
 4. Personaliza los colores, tipografía y contenido según tus preferencias
 5. Experimenta con diferentes sombras de texto
-6. Ajusta el diseño para que sea responsivo
-7. Guarda el archivo y ábrelo en tu navegador
+6. Guarda el archivo y ábrelo en tu navegador
 
 ¡Experimenta con diferentes combinaciones y crea tu propio estilo único!
