@@ -203,24 +203,9 @@ Crea una página web que contenga una reseña de tu libro favorito. Debe incluir
    - `<mark>` para resaltar texto
    - `<sup>` o `<sub>` para superíndice o subíndice
 
-### 📌 Ejemplo de Cómo Debería Verse
+### 📌 Ejemplo de Cómo Debería quedar
 
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Reseña de Mi Libro Favorito</title>
-</head>
-<body>
-    <h1>El Principito</h1>
-    <h2>Antoine de Saint-Exupéry</h2>
-    <p><mark>El Principito</mark> es una hermosa fábula filosófica que narra la historia de un pequeño príncipe que viaja entre planetas.</p>
-    <p>Entre los personajes más memorables está la <i>zorra</i>, quien le enseña al principito que <strong>"sólo con el corazón se puede ver bien, lo esencial es invisible a los ojos"</strong>. También están el rey, el vanidoso y el hombre de negocios que representan diferentes aspectos de la condición humana.</p>
-    <p>Este libro es ideal para <u>todos los públicos</u> y te hará reflexionar sobre la amistad, el amor y lo que realmente importa en la vida. ¡Es un clásico que todo el mundo debería leer al menos una vez<sup>1</sup>!</p>
-</body>
-</html>
-```
+![Ejemplo](ejercicio-1.png "Página con etiquetas de HTML")
 
 ### 💡 Consejos para Completar el Reto
 
