@@ -267,60 +267,7 @@ Crea una página web que contenga una receta de cocina detallada. Debe incluir:
 
 ### 📌 Ejemplo de Cómo Debería Verse
 
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Receta: Pastel de Chocolate</title>
-</head>
-<body>
-    <h1>Pastel de Chocolate</h1>
-    
-    <img src="pastel.jpg" alt="Pastel de chocolate listo para servir" width="400">
-    
-    <h2>Ingredientes</h2>
-    <ul id="ingredientes">
-        <li>200g de chocolate negro</li>
-        <li>150g de mantequilla</li>
-        <li>3 huevos</li>
-        <li>150g de azúcar</li>
-        <li>100g de harina</li>
-    </ul>
-    
-    <h2>Instrucciones</h2>
-    <p><a href="#ingredientes">Ver ingredientes</a></p>
-    <ol>
-        <li>Precalienta el horno a 180°C</li>
-        <li>Derrite el chocolate y la mantequilla al baño María</li>
-        <li>Bate los huevos con el azúcar hasta que doblen su volumen</li>
-        <li>Mezcla el chocolate derretido con los huevos batidos</li>
-        <li>Incorpora la harina con movimientos suaves</li>
-        <li>Vierte en un molde engrasado y hornea por 25 minutos</li>
-    </ol>
-    
-    <h2>Consejos Profesionales</h2>
-    <ul>
-        <li>Para un sabor extra:
-            <ul>
-                <li>Añade una cucharada de café instantáneo</li>
-                <li>Incorpora nueces picadas</li>
-            </ul>
-        </li>
-        <li>Para servir:
-            <ul>
-                <li>Acompaña con helado de vainilla</li>
-                <li>Decora con frutas frescas</li>
-            </ul>
-        </li>
-    </ul>
-    
-    <h2>Contacto</h2>
-    <p>¿Tienes preguntas? <a href="mailto:recetas@miweb.com">Envíame un correo</a></p>
-    <p>Sígueme en <a href="https://instagram.com/miweb" target="_blank">Instagram</a></p>
-</body>
-</html>
-```
+![Ejercicio 2](ejercicio2.png "Ejercicio 2")
 
 ### 💡 Consejos para Completar el Reto
 - Usa una imagen de placeholder si no tienes una imagen real: `https://via.placeholder.com/400x300`
