@@ -710,7 +710,7 @@ transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
 
 ### 📌 Ejemplo de Cómo Debería Verse
 
-![Ejercicio 8]("ejercicio-8.png")
+![Ejemplo](ejercicio-8.png "Página con transiciones en CSS")
 
 ## Descripción del Reto
 Crea una página web que demuestre al menos **5 efectos diferentes** usando las técnicas aprendidas en la clase. Tu página debe ser interactiva y visualmente atractiva.
