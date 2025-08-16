@@ -287,7 +287,7 @@ Las transiciones permiten cambiar suavemente entre dos estados de un elemento.
 - **linear**: Velocidad constante
 - **cubic-bezier()**: Permite crear curvas personalizadas
 
-## 🏆 Ejercicio práctico: Botones interactivos con efectos hover
+## 🏆 Ejercicio práctico: Ejercicio de Efectos y Transiciones en CSS
 
 ### HTML Structure
 
@@ -297,262 +297,230 @@ Las transiciones permiten cambiar suavemente entre dos estados de un elemento.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botones con Efectos Avanzados</title>
+    <title>Efectos CSS - Clase 8</title>
     <style>
-        /* Estilos base */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 40px 20px;
+            padding: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
-        
+
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-        }
-        
-        .page-title {
-            text-align: center;
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .buttons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .button-container {
-            background: white;
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
             text-align: center;
-        }
-        
-        .button-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 20px;
             color: #333;
+            margin-bottom: 30px;
         }
-        
-        /* Estilos base para todos los botones */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
+
+        /* Tarjeta básica con sombra */
+        .tarjeta {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
             border-radius: 8px;
-            margin: 10px 5px;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
-        /* Botón con gradiente */
-        .btn-gradient {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            color: white;
-            transition: all 0.3s ease;
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
-        
-        .btn-gradient:hover {
-            background: linear-gradient(45deg, #ee5a52, #ff6b6b);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
-        }
-        
-        /* Botón con borde animado */
-        .btn-border {
-            background-color: transparent;
-            color: #3498db;
-            border: 2px solid #3498db;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-border:hover {
+
+        /* Botones interactivos */
+        .boton {
+            display: inline-block;
+            padding: 12px 24px;
             background-color: #3498db;
             color: white;
-            border-color: #2980b9;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
-        
-        /* Botón con escala */
-        .btn-scale {
-            background-color: #e74c3c;
+
+        .boton:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .boton:active {
+            transform: scale(0.98);
+        }
+
+        /* Imagen con overlay */
+        .imagen-contenedor {
+            position: relative;
+            width: 200px;
+            height: 150px;
+            margin: 20px auto;
+            background: #e74c3c;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .imagen-contenedor::after {
+            content: "IMAGEN";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            transition: all 0.3s ease;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        
-        .btn-scale:hover {
-            transform: scale(1.08);
+
+        .imagen-contenedor:hover::after {
+            opacity: 1;
         }
-        
-        /* Botón con sombra interna */
-        .btn-inset {
-            background-color: #9b59b6;
+
+        /* Elementos con diferentes transformaciones */
+        .elemento-rotado {
+            width: 80px;
+            height: 80px;
+            background: #e67e22;
+            margin: 20px;
+            display: inline-block;
+            text-align: center;
+            line-height: 80px;
             color: white;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
+            font-weight: bold;
+            transition: transform 0.3s ease;
         }
-        
-        .btn-inset:hover {
-            background-color: #8e44ad;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+        .elemento-rotado:hover {
+            transform: rotate(45deg);
         }
-        
-        /* Botón 3D */
-        .btn-3d {
-            background-color: #f39c12;
+
+        .elemento-escalado {
+            width: 80px;
+            height: 80px;
+            background: #9b59b6;
+            margin: 20px;
+            display: inline-block;
+            text-align: center;
+            line-height: 80px;
             color: white;
-            transform: perspective(500px) rotateX(0deg);
-            transition: all 0.3s ease;
+            font-weight: bold;
+            transition: transform 0.3s ease;
         }
-        
-        .btn-3d:hover {
-            transform: perspective(500px) rotateX(10deg) translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+        .elemento-escalado:hover {
+            transform: scale(1.3);
         }
-        
-        /* Código de ejemplo */
-        .code-container {
-            background: #2c3e50;
-            color: #ecf0f1;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            text-align: left;
-            overflow-x: auto;
+
+        .elemento-desplazado {
+            width: 80px;
+            height: 80px;
+            background: #27ae60;
+            margin: 20px;
+            display: inline-block;
+            text-align: center;
+            line-height: 80px;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease;
         }
-        
-        .code-property {
-            color: #3498db;
+
+        .elemento-desplazado:hover {
+            transform: translateX(20px);
         }
-        
-        .code-value {
-            color: #e74c3c;
+
+        /* Caja con sombra interna */
+        .caja-hundida {
+            width: 200px;
+            height: 100px;
+            background: #f8f9fa;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
         }
-        
-        .code-comment {
-            color: #95a5a6;
+
+        /* Texto con opacidad */
+        .texto-fade {
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
         }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .buttons-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .page-title {
-                font-size: 2rem;
-            }
+
+        .texto-fade:hover {
+            opacity: 1;
+        }
+
+        .seccion-ejemplos {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .seccion-ejemplos h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="page-title">Botones con Efectos Avanzados</h1>
+        <h1>Efectos y Transiciones CSS</h1>
         
-        <div class="buttons-grid">
-            <!-- Botón con gradiente -->
-            <div class="button-container">
-                <div class="button-title">Botón con Gradiente</div>
-                <a href="#" class="btn btn-gradient">Botón Gradiente</a>
-                <div class="code-container">
-                    <span class="code-comment">/* Botón con gradiente */</span><br>
-                    .btn-gradient {<br>
-                    &nbsp;&nbsp;background: linear-gradient(45deg, <span class="code-value">#ff6b6b</span>, <span class="code-value">#ee5a52</span>);<br>
-                    &nbsp;&nbsp;<span class="code-property">transition</span>: all 0.3s ease;<br>
-                    }<br><br>
-                    
-                    .btn-gradient:hover {<br>
-                    &nbsp;&nbsp;transform: <span class="code-value">translateY(-2px)</span>;<br>
-                    &nbsp;&nbsp;box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);<br>
-                    }
-                </div>
+        <div class="tarjeta">
+            <h3>Tarjeta con Sombra y Transición</h3>
+            <p>Esta tarjeta tiene una sombra suave y se eleva cuando pasas el mouse sobre ella. Utiliza <strong>box-shadow</strong> y <strong>transform</strong> con transiciones suaves.</p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Botones Interactivos</h3>
+            <p>Estos botones cambian de color y escala al hacer hover:</p>
+            <a href="#" class="boton">Botón 1</a>
+            <a href="#" class="boton">Botón 2</a>
+            <a href="#" class="boton">Botón 3</a>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Imagen con Overlay</h3>
+            <p>Pasa el mouse sobre la imagen para ver el efecto de overlay con <strong>rgba()</strong>:</p>
+            <div class="imagen-contenedor"></div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="seccion-ejemplos">
+                <h3>Transformaciones</h3>
+                <p>Pasa el mouse sobre cada cuadro:</p>
+                <div class="elemento-rotado">ROTAR</div>
+                <div class="elemento-escalado">ESCALAR</div>
+                <div class="elemento-desplazado">MOVER</div>
             </div>
-            
-            <!-- Botón con borde animado -->
-            <div class="button-container">
-                <div class="button-title">Botón con Borde Animado</div>
-                <a href="#" class="btn btn-border">Botón con Borde</a>
-                <div class="code-container">
-                    <span class="code-comment">/* Botón con borde animado */</span><br>
-                    .btn-border {<br>
-                    &nbsp;&nbsp;background-color: transparent;<br>
-                    &nbsp;&nbsp;color: <span class="code-value">#3498db</span>;<br>
-                    &nbsp;&nbsp;border: 2px solid <span class="code-value">#3498db</span>;<br>
-                    &nbsp;&nbsp;<span class="code-property">transition</span>: all 0.3s ease;<br>
-                    }<br><br>
-                    
-                    .btn-border:hover {<br>
-                    &nbsp;&nbsp;background-color: <span class="code-value">#3498db</span>;<br>
-                    &nbsp;&nbsp;color: white;<br>
-                    &nbsp;&nbsp;border-color: <span class="code-value">#2980b9</span>;<br>
-                    }
-                </div>
-            </div>
-            
-            <!-- Botón con escala -->
-            <div class="button-container">
-                <div class="button-title">Botón con Efecto de Escala</div>
-                <a href="#" class="btn btn-scale">Botón Escalado</a>
-                <div class="code-container">
-                    <span class="code-comment">/* Botón con efecto de escala */</span><br>
-                    .btn-scale {<br>
-                    &nbsp;&nbsp;<span class="code-property">transition</span>: all 0.3s ease;<br>
-                    }<br><br>
-                    
-                    .btn-scale:hover {<br>
-                    &nbsp;&nbsp;transform: <span class="code-value">scale(1.08)</span>;<br>
-                    }
-                </div>
-            </div>
-            
-            <!-- Botón con sombra interna -->
-            <div class="button-container">
-                <div class="button-title">Botón con Sombra Interna</div>
-                <a href="#" class="btn btn-inset">Botón con Sombra</a>
-                <div class="code-container">
-                    <span class="code-comment">/* Botón con sombra interna */</span><br>
-                    .btn-inset {<br>
-                    &nbsp;&nbsp;box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);<br>
-                    &nbsp;&nbsp;<span class="code-property">transition</span>: all 0.3s ease;<br>
-                    }<br><br>
-                    
-                    .btn-inset:hover {<br>
-                    &nbsp;&nbsp;background-color: <span class="code-value">#8e44ad</span>;<br>
-                    &nbsp;&nbsp;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);<br>
-                    }
-                </div>
-            </div>
-            
-            <!-- Botón 3D -->
-            <div class="button-container">
-                <div class="button-title">Botón con Transformación 3D</div>
-                <a href="#" class="btn btn-3d">Botón 3D</a>
-                <div class="code-container">
-                    <span class="code-comment">/* Botón con transformación 3D */</span><br>
-                    .btn-3d {<br>
-                    &nbsp;&nbsp;transform: perspective(500px) rotateX(0deg);<br>
-                    &nbsp;&nbsp;<span class="code-property">transition</span>: all 0.3s ease;<br>
-                    }<br><br>
-                    
-                    .btn-3d:hover {<br>
-                    &nbsp;&nbsp;transform: perspective(500px) rotateX(10deg) translateY(-3px);<br>
-                    &nbsp;&nbsp;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);<br>
-                    }
-                </div>
-            </div>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Sombra Interna</h3>
+            <p>Esta caja usa <strong>box-shadow inset</strong> para crear un efecto hundido:</p>
+            <div class="caja-hundida">Efecto Hundido</div>
+        </div>
+
+        <div class="tarjeta">
+            <h3 class="texto-fade">Texto con Opacidad</h3>
+            <p class="texto-fade">Este texto tiene opacidad reducida y se vuelve completamente visible al hacer hover. Utiliza la propiedad <strong>opacity</strong> con transiciones.</p>
         </div>
     </div>
 </body>
@@ -740,320 +708,52 @@ transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
 
 ¡Felicidades por completar los ejercicios de efectos avanzados y transiciones! Aquí tienes un reto adicional para que practiques aún más:
 
-### 📚 Descripción del Reto
-
-Crea una galería de proyectos interactiva con los siguientes elementos:
-
-- Tarjetas de proyecto que reaccionen al pasar el mouse con múltiples efectos
-- Efecto de "zoom" suave en las imágenes al hacer hover
-- Superposición de información con opacidad controlada
-- Transiciones suaves para todos los efectos
-- Efecto de elevación realista al hacer hover
-- Diseño responsivo que funcione en móviles y escritorio
-
 ### 📌 Ejemplo de Cómo Debería Verse
 
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería de Proyectos Interactiva</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+![Ejercicio 8]("ejercicio-8.png")
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 40px 20px;
-            min-height: 100vh;
-        }
+## Descripción del Reto
+Crea una página web que demuestre al menos **5 efectos diferentes** usando las técnicas aprendidas en la clase. Tu página debe ser interactiva y visualmente atractiva.
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+## Requisitos Mínimos
+✅ Usar **box-shadow** en al menos 2 elementos  
+✅ Implementar **3 transformaciones diferentes** (rotate, scale, translate)  
+✅ Aplicar **transiciones suaves** en todos los efectos hover  
+✅ Usar **opacidad** o **rgba** para crear transparencias  
+✅ Crear al menos **2 botones interactivos**  
+✅ Incluir un elemento que combine **múltiples transformaciones**
 
-        .gallery-title {
-            text-align: center;
-            color: white;
-            font-size: 3rem;
-            margin-bottom: 60px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
+## Ideas para tu Página
+- **Tarjetas de perfil** que se eleven al hacer hover
+- **Galería de imágenes** con efectos de zoom
+- **Menú de navegación** con botones animados
+- **Elementos decorativos** que roten o se muevan
+- **Cajas de información** con sombras y transparencias
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
+## Consejos para el Éxito
 
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
-            transform: translateY(0);
-        }
+### 🎨 Diseño
+- Elige una **paleta de colores** de máximo 4 colores
+- Usa **espaciado consistente** entre elementos
+- Mantén el diseño **simple y limpio**
 
-        .project-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
+### ⚡ Efectos
+- Las transiciones de **0.3s** funcionan bien para la mayoría de efectos
+- Combina `transform` con `box-shadow` para efectos más impactantes
+- Usa `rgba()` en lugar de `opacity` cuando solo quieras transparencia en el fondo
 
-        .project-image {
-            position: relative;
-            overflow: hidden;
-            height: 250px;
-        }
+### 🔧 Técnico
+- Agrupa efectos similares en **clases CSS reutilizables**
+- Usa `:hover` para todos los efectos interactivos
+- Prueba diferentes **timing functions** (ease, ease-in-out)
 
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+### 📱 Buenas Prácticas
+- No abuses de los efectos - **menos es más**
+- Asegúrate de que las transiciones sean **suaves y naturales**
+- Mantén tiempos de transición **cortos** (0.2s - 0.5s)
 
-        .project-card:hover .project-image img {
-            transform: scale(1.1);
-        }
 
-        .project-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
 
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-
-        .project-title {
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-        }
-
-        .project-category {
-            color: #ecf0f1;
-            font-size: 1rem;
-            transform: translateY(20px);
-            transition: transform 0.3s ease 0.1s;
-        }
-
-        .project-card:hover .project-title,
-        .project-card:hover .project-category {
-            transform: translateY(0);
-        }
-
-        .project-info {
-            padding: 25px;
-        }
-
-        .project-info h2 {
-            color: #2c3e50;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        .project-description {
-            color: #7f8c8d;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .tag {
-            background: #e8f4fd;
-            color: #3498db;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
-        }
-
-        @media (max-width: 768px) {
-            .gallery-title {
-                font-size: 2rem;
-            }
-            
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1 class="gallery-title">Mi Portafolio</h1>
-        
-        <div class="project-grid">
-            <!-- Proyecto 1 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://via.placeholder.com/600x400/3498db/ffffff?text=Sitio+Web" alt="Proyecto 1">
-                    <div class="project-overlay">
-                        <h2 class="project-title">Sitio Web Corporativo</h2>
-                        <p class="project-category">Desarrollo Web</p>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h2>Sitio Web Corporativo</h2>
-                    <p class="project-description">Desarrollo completo de sitio web responsivo para empresa de tecnología, incluyendo sistema de gestión de contenidos y optimización SEO.</p>
-                    <div class="project-tags">
-                        <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">PHP</span>
-                    </div>
-                    <a href="#" class="btn">Ver Proyecto</a>
-                </div>
-            </div>
-            
-            <!-- Proyecto 2 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://via.placeholder.com/600x400/e74c3c/ffffff?text=App+Móvil" alt="Proyecto 2">
-                    <div class="project-overlay">
-                        <h2 class="project-title">Aplicación Móvil</h2>
-                        <p class="project-category">Desarrollo Móvil</p>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h2>Aplicación Móvil</h2>
-                    <p class="project-description">Aplicación para gestión de tareas con interfaz intuitiva y sincronización en tiempo real entre dispositivos.</p>
-                    <div class="project-tags">
-                        <span class="tag">React Native</span>
-                        <span class="tag">Firebase</span>
-                        <span class="tag">UI/UX</span>
-                    </div>
-                    <a href="#" class="btn">Ver Proyecto</a>
-                </div>
-            </div>
-            
-            <!-- Proyecto 3 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://via.placeholder.com/600x400/9b59b6/ffffff?text=UI/UX+Design" alt="Proyecto 3">
-                    <div class="project-overlay">
-                        <h2 class="project-title">Diseño UI/UX</h2>
-                        <p class="project-category">Experiencia de Usuario</p>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h2>Diseño UI/UX</h2>
-                    <p class="project-description">Rediseño completo de la interfaz de usuario para una aplicación de finanzas personales, mejorando la usabilidad en un 40%.</p>
-                    <div class="project-tags">
-                        <span class="tag">Figma</span>
-                        <span class="tag">Prototipado</span>
-                        <span class="tag">Investigación</span>
-                    </div>
-                    <a href="#" class="btn">Ver Proyecto</a>
-                </div>
-            </div>
-            
-            <!-- Proyecto 4 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://via.placeholder.com/600x400/f39c12/ffffff?text=Sistema+Admin" alt="Proyecto 4">
-                    <div class="project-overlay">
-                        <h2 class="project-title">Sistema Administrativo</h2>
-                        <p class="project-category">Desarrollo Web</p>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h2>Sistema Administrativo</h2>
-                    <p class="project-description">Plataforma para gestión de inventario y ventas con panel de administración intuitivo y reportes en tiempo real.</p>
-                    <div class="project-tags">
-                        <span class="tag">PHP</span>
-                        <span class="tag">MySQL</span>
-                        <span class="tag">Bootstrap</span>
-                    </div>
-                    <a href="#" class="btn">Ver Proyecto</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-```
-
-### 💡 Consejos para Completar el Reto
-
-1. **Usa transform y opacity para todas las animaciones** (mejor rendimiento)
-2. **Implementa el efecto de "zoom" en las imágenes** con `transform: scale()`
-3. **Crea superposiciones con rgba()** para controlar la transparencia sin afectar al texto
-4. **Usa will-change y translateZ(0)** para optimizar el rendimiento
-5. **Ajusta los tiempos de transición** para crear una secuencia de animación suave
-6. **Prueba diferentes timing functions** para ver cómo afectan a la sensación de los efectos
-7. **Asegúrate de que el diseño sea responsivo** probando en diferentes tamaños de pantalla
-8. **Si te sientes cómodo, añade un efecto de "parallax" suave** al hacer hover
-
-### 📅 Entrega
-
-¡Tómate el tiempo que necesites! Cuando termines, comparte tu código en el grupo de WhatsApp y te daré feedback personalizado.
-
-**Bonus**: Si completas este reto, ¡recibirás una colección de efectos avanzados de CSS que utilizan animaciones keyframes para proyectos profesionales!
-
-¿Te animas a aceptar el reto? ¡Tu galería de proyectos podría ser el elemento más destacado de tu portafolio! 🌟✨
-
----
 
 ## 📝 Resumen de la Clase
 
